@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+myenv/
+venv/
+
+# Django
+media/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Mac / Linux
+.DS_Store
+
+# Static files (если не хочешь в git)
+static/
+
+# migrations cache (НЕ удалять миграции!)
+**/__pycache__/

@@ -1,0 +1,24 @@
+<h1>Список книг</h1>
+
+{% for book in books %}
+<div style="border:1px solid #ccc; margin:10px; padding:10px;">
+    
+    <h2>{{ book.title }}</h2>
+
+    <p><b>Автор:</b> {{ book.author }}</p>
+    <p><b>Жанр:</b> {{ book.genre }}</p>
+    <p><b>Страниц:</b> {{ book.pages }}</p>
+    <p><b>Рейтинг:</b> {{ book.rating }}</p>
+
+    <p>
+        {% if book.description|length > 100 %}
+            {{ book.description|slice:":100" }}...
+        {% else %}
+            {{ book.description }}
+        {% endif %}
+    </p>
+
+    <a href="{% url 'books_detail' book.id %}">Подробнее →</a>
+
+</div>
+{% endfor %}
