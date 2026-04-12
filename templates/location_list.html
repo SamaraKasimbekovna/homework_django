@@ -1,0 +1,39 @@
+<h1>Конные туры</h1>
+
+{% for loc in locations %}
+
+    <h2>{{ loc.name }}</h2>
+
+    {% if loc.image %}
+        <img src="{{ loc.image.url }}" width="300">
+    {% endif %}
+
+    <p>Категории:</p>
+    {% for cat in loc.categories.all %}
+        <span>{{ cat.name }}</span>
+    {% endfor %}
+
+    <p>Комментарии:</p>
+    {% for comment in loc.comment_set.all %}
+        <div>{{ comment.text }}</div>
+    {% empty %}
+        <p>Комментариев нет</p>
+    {% endfor %}
+
+    <p>Люди:</p>
+    {% for person in loc.person_set.all %}
+        <div>{{ person.name }}</div>
+    {% empty %}
+        <p>Нет людей</p>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="location_id" value="{{ loc.id }}">
+        <input type="text" name="comment" placeholder="Комментарий">
+        <button type="submit">Отправить</button>
+    </form>
+
+    <hr>
+
+{% endfor %}
