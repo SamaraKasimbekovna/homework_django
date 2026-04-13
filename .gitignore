@@ -35,3 +35,8 @@ env/
 myenv/
 .vscode/
 .idea/
+db.sqlite3
+myenv/
+__pycache__/
+*.pyc
+media/
