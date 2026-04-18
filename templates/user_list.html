@@ -1,0 +1,16 @@
+{% for i in user_list %}
+
+    {% if i.photo %}
+        <img src="{{ i.photo.url }}" width="300" height="400">
+    {% else %}
+        <p>Фото нет</p>
+    {% endif %}
+
+    <h3>пользователь № - {{ i.id }}</h3>
+    <h3>никнейм - {{ i.user.username }}</h3>
+    <p>номер телефона - {{ i.phone_number }}</p>
+    <p>город - {{ i.city }}</p>
+
+    <hr>
+
+{% endfor %}

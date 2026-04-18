@@ -8,7 +8,9 @@ urlpatterns = [
     path('tour/', include('horse_tour.urls')),
     path('books/', include('books.urls')),
     path('questionnaire/', include('questionnaire.urls')),
-    
+
+    path('', include('users.urls')),
+    path('', include('captcha.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

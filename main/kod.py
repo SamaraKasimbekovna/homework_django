@@ -13,4 +13,18 @@ python manage.py runserver
 # 
 python manage.py startapp (app_name (создание приложения)  
 
-python manage.py createsuperuser (создание суперпользователя)         
+python manage.py createsuperuser (создание суперпользователя)     
+
+1.git init
+2.git add .
+3.git commit -m "first commit"
+4.git branch -M main
+5.git remote add origin <repository_url>(git remote add origin https://github.com/USERNAME/REPO.git)
+6.git push -u origin main
+
+
+ДАЛЬШЕ (каждый раз при изменениях)
+
+git add .
+git commit -m "Домашка №5"
+git push
