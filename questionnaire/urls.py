@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/', views.questionnaire_create, name='create'),
     path('update/<int:pk>/', views.questionnaire_update, name='update'),
     path('delete/<int:pk>/', views.questionnaire_delete, name='delete'),
+    path('<int:pk>/', views.questionnaire_detail, name='detail'),
 ]

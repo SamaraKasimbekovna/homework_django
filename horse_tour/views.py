@@ -1,16 +1,19 @@
 from django.shortcuts import render
-from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import Location
 
-
 def location_list_view(request):
-    if request.method == 'GET':
-        locations = Location.objects.all().order_by('-id')
-        return render(
-            request,
-            'location_list.html',
-            {
-                'locations': locations
-            }
-        )
+    locations = Location.objects.all().order_by('-id')
+
+    paginator = Paginator(locations, 2)  # по 2 на страницу
+    page = request.GET.get('page')
+    page_obj = paginator.get_page(page)
+
+    return render(
+        request,
+        'location_list.html',
+        {
+            'page_obj': page_obj
+        }
+    )
 # Create your views here.

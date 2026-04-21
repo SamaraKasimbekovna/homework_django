@@ -3,6 +3,17 @@ from django.http import HttpResponse
 from .models import Books
 
 
+def book_list(request):
+    query = request.GET.get('q')
+    
+    if query:
+        books = Book.objects.filter(title__icontains=query)
+    else:
+        books = Book.objects.all()
+    
+    return render(request, 'books/book_list.html', {'books': books})
+
+
 def books_detail(request, id):
     books_detail = get_object_or_404(Books, id=id)
     return render(request, "books_detail.html", {"book": books_detail})

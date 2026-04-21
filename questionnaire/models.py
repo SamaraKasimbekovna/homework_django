@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Questionnaire(models.Model):
     name = models.CharField(max_length=100)
     hobby = models.CharField(max_length=100)
@@ -12,6 +13,7 @@ class Questionnaire(models.Model):
     birth_date = models.DateField()
 
     profile_image = models.ImageField(upload_to='images/')
+    views = models.PositiveBigIntegerField(default=0, null=True)
 
     def __str__(self):
         return self.name
