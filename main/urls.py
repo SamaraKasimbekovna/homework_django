@@ -3,14 +3,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('tour/', include('horse_tour.urls')),
-    path('books/', include('books.urls')),
+    path('books/', include('books.urls')),   # ✅ один раз
+
     path('questionnaire/', include('questionnaire.urls')),
     path('', include('users.urls')),
-    path('', include('captcha.urls')),
+
+    path('captcha/', include('captcha.urls')),  # лучше не на корне
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

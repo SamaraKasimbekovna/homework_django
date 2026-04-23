@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import location_list_view
+from .views import LocationListView
 
 urlpatterns = [
-    path('', location_list_view, name='location_list'),
+    path('', LocationListView.as_view(), name='location_list'),
 ]

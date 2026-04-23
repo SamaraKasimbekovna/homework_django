@@ -1,16 +1,18 @@
 <h1>Анкеты</h1>
 
-<a href="{% url 'create' %}">Создать анкету</a>
+<a href="{% url 'questionnaire:create' %}">Создать анкету</a>
 
-<ul>    {% for q in questionnaires %}
+<ul>
+    {% for q in questionnaires %}
         <li>
             {{ q.name }} - {{ q.birth_date }}
-             <a href="{% url 'update' q.id %}">Редактировать</a>
-            <a href="{% url 'delete' q.id %}">Удалить</a>
+
+            <a href="{% url 'questionnaire:update' q.id %}">Редактировать</a>
+            <a href="{% url 'questionnaire:delete' q.id %}">Удалить</a>
 
             <p>Просмотры: {{ q.views }}</p>
 
-            <a href="{% url 'detail' q.id %}">Открыть</a>
+            <a href="{% url 'questionnaire:detail' q.id %}">Открыть</a>
         </li>
     {% endfor %}
 </ul>
